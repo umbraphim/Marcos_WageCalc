@@ -43,9 +43,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     String type = btnSelected.getText().toString();
 
-
                     String name = employeeName.getText().toString();
-                    String totalHours; Double.parseDouble(employeeHours.getText().toString());
+                    Double totalHours = Double.parseDouble(employeeHours.getText().toString());
 
                     Intent intent = new Intent(this,Display.class);
 

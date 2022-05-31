@@ -30,21 +30,28 @@ public class Display extends AppCompatActivity {
 
 
         Intent i = getIntent();
-
-        String EmployeeName = i.getStringExtra("empName");
         String EmployeeType = i.getStringExtra("type");
+        String EmployeeName = i.getStringExtra("empName");
         Double EmployeeHours = Double.parseDouble(i.getStringExtra("hours"));
 
 
         txtName.setText("EmployeeName: "+ EmployeeName);
         txtType.setText("Employee Type: "+ String.valueOf(EmployeeHours));
-        txtHours.setText("Hours Rendered: "+ String.valueOf(EmployeeHours));
+        txtHours.setText("Hours Rendered: ₱"+ String.valueOf(EmployeeHours));
+        Double totalWage = 0.0;
 
-
-        if(EmployeeHours<=8){
-            if
+        if(EmployeeType.equals("Full-time")){
+            totalWage = EmployeeHours * 100;
+            txtWage.setText(String.valueOf(totalWage));
         }
-
+        else if(EmployeeType.equals("Part-time")){
+            totalWage = EmployeeHours * 75;
+            txtWage.setText(String.valueOf(totalWage));
+        }
+        else{
+            totalWage = EmployeeHours * 90;
+            txtWage.setText(String.valueOf(totalWage))
+        }
 
     }
 }
